@@ -7,77 +7,17 @@
  * 
  **********************************/
 
-
-
 package predictive_model_app;
 
 import java.awt.*;
 import javax.swing.*;
 
-public class Level1Gui extends JFrame 
+public class Level1Gui extends Gui
 {
-	//attributes
-	private JButton predict;
-	private JComboBox<String> hasProfilePic;
-	private JComboBox<String> hasEmail;
-	private JComboBox<String> isActive;
-	private JComboBox<String> over100Followers;
-	private JLabel results;
-	private JLabel hasProfilePicLabel;
-	private JLabel hasEmailLabel;
-	private JLabel isActiveLabel;
-	private JLabel over100FollowersLabel;
-	private JPanel topPanel;
-	private JPanel bottomPanel;
 	
 	public Level1Gui ()
 	{
-		//setting up Gui
-		setTitle("Level 1 Predictive model app");
-		setSize(600,300);
-		setLayout(new FlowLayout());
-		
-		//top panel created for the user input
-		topPanel = new JPanel();
-		topPanel.setLayout(new GridLayout(4,2));
-		add(topPanel, BorderLayout.CENTER);
-		
-		//creating checkboxes, labels and buttons
-		String[] options = {"yes", "no"};
-		hasProfilePic = new JComboBox<>(options);
-		hasEmail = new JComboBox<>(options);
-		isActive = new JComboBox<>(options);
-		over100Followers = new JComboBox<>(options);
-		
-		results = new JLabel();
-		predict = new JButton("Predict");
-		
-		hasProfilePicLabel = new JLabel("Has Profile Pic");
-		hasEmailLabel = new JLabel("Has email");
-		isActiveLabel = new JLabel("Is active");
-		over100FollowersLabel = new JLabel("Over 100 followers");
-		
-		//adding to top panel
-		topPanel.add(hasProfilePicLabel);
-		topPanel.add(hasProfilePic);
-		
-		topPanel.add(hasEmailLabel);
-		topPanel.add(hasEmail);
-		
-		topPanel.add(isActiveLabel);
-		topPanel.add(isActive);
-		
-		topPanel.add(over100FollowersLabel);
-		topPanel.add(over100Followers);
-		
-		//creating and adding to the bottom panel
-		bottomPanel = new JPanel();
-		bottomPanel.setLayout(new FlowLayout());
-		add(bottomPanel, BorderLayout.SOUTH);
-		
-		bottomPanel.add(predict);
-		bottomPanel.add(results);
-		
+		super("Predictive model app level 1");
 		
 		//for when the predict button is pressed 	
 		predict.addActionListener(e -> {
