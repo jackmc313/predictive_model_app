@@ -4,6 +4,7 @@ import java.util.*;
 
 public class TrainCSV_data {
 	
+	//attributes
 	private Map<String, Integer> lineCount;
 	private String lineOfData;
 	private boolean equal;
@@ -17,18 +18,42 @@ public class TrainCSV_data {
 	
 	
 	
-	
+	//constructor
 	public TrainCSV_data ()
 	{
 		lineCount = new HashMap<>();
-		yes =
+		yes = 0;
+		no = 0;
+		percentage = 0;
+		result = "";
 	}
+	
+	//getters
+	public int getYes()
+	{
+		return yes;
+	}
+	public int getNo()
+	{
+		return no;
+	}
+	public int getPercentage()
+	{
+		return percentage;
+	}
+	public String getResult()
+	{
+		return result;
+	}
+	
+	
 	//method to divide data up to yes and nos 
 	public void train(List<String> csvData)
 	{
-		
+		//clear hashmap incase theres lingering data
 		lineCount.clear();
 		
+		//loop to comb through csv file and count how many times a permutation happens 
 		for(String lineOfData : csvData)
 		{
 			if (lineCount.containsKey(lineOfData))
@@ -42,6 +67,7 @@ public class TrainCSV_data {
 		}
 	}
 	
+	//method to predict outcome from user input
 	public String forecastResult(String enteredValues)
 	{
 		yes = 0;
@@ -64,6 +90,7 @@ public class TrainCSV_data {
 				}
 			}
 			
+			//adds to yes or no count depending on what the label equals
 			if (equal) 
 			{
 				if (splitCsvData[splitCsvData.length - 1].equals("yes"))
@@ -96,10 +123,7 @@ public class TrainCSV_data {
 		
 		
 		
-		
-		
-		
-		
+		//returning result along with percentage of chance
 		return result + " Percentage = " + percentage + "%";
 	}
 	
