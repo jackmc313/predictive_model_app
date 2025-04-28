@@ -4,7 +4,7 @@ public class Control {
 
 	public static void main(String[] args) 
 	{
-		new Level1Gui();
+		new Level2Gui();
 	}
 
 }
