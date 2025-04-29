@@ -60,7 +60,7 @@ public class TestingAccuracy {
 			}
 			else if (forecastingData.contains("Data shows an equal chance"))
 			{
-				forecastingData = "yes";
+				forecastingData = "no";
 			}
 			
 			if (forecastingData.trim().equals(endData.trim()))
