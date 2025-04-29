@@ -23,20 +23,23 @@ public class TestingAccuracy {
 		score = 0;
 	}
 	
-	
+	//method to getaccuracy of model
 	public double getAccuracy(Map<String, List<String>> testAndTrainData)
 	{
 		trainingData = testAndTrainData.get("training data");
 		testingData = testAndTrainData.get("testing data");
 		
+		//calling traincsv
 		trainData.train(trainingData);
 		score = 0;
 
+		//going through the features and labels of testing data
 		for (String line : testingData)
 		{
 			cutUpData = line.split(",");
 			endData = cutUpData[cutUpData.length - 1];
 			
+			//rebuilding string without label
 			stringBuilder = new StringBuilder();
 			for (int i = 0; i < cutUpData.length - 1; i++)
 			{
@@ -46,9 +49,11 @@ public class TestingAccuracy {
 					stringBuilder.append(",");
 				}
 			}
+			//making predictions here through the traincsv class
 			fullData = stringBuilder.toString();
 			forecastingData = trainData.forecastResult(fullData).trim();
 						
+			//reformatting the answers here as in train data the outcome is a whole sentence
 			if (forecastingData.contains("User is verified"))
 			{
 				forecastingData = "yes";
@@ -63,6 +68,7 @@ public class TestingAccuracy {
 				forecastingData = "no";
 			}
 			
+			//if they are the same add to score 
 			if (forecastingData.trim().equals(endData.trim()))
 			{
 				score++;

@@ -40,8 +40,10 @@ public class Level4Gui extends Level3Gui{
 			//calling Stratifying data to seperate testing and training data
 			dataStratified = seperateData.seperateData(trainedData);
 			
+			//calling get accuracy to test accuracy of the data 
 			accuracy = testing.getAccuracy(dataStratified);
 			
+			//paste this outcome
 			testAccuracyLabel.setText(String.format("The accuracy of this model is %.2f%%", accuracy * 100));
 			
 			
