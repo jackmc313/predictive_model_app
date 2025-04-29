@@ -10,7 +10,7 @@ public class Level3Gui extends Level2Gui{
 	private JComboBox<String> isVerified;
 	private JLabel isVerifiedLabel;
 	private String newAddedData;
-	private JPanel buttonsAndResults;
+	protected JPanel buttonsAndResults;
 	
 	public Level3Gui()
 	{

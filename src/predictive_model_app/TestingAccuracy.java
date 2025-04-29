@@ -30,6 +30,7 @@ public class TestingAccuracy {
 		testingData = testAndTrainData.get("testing data");
 		
 		trainData.train(trainingData);
+		score = 0;
 
 		for (String line : testingData)
 		{
@@ -47,16 +48,28 @@ public class TestingAccuracy {
 			}
 			fullData = stringBuilder.toString();
 			forecastingData = trainData.forecastResult(fullData).trim();
+						
+			if (forecastingData.contains("User is verified"))
+			{
+				forecastingData = "yes";
+			}
+			else if (forecastingData.contains("User is not verified"))
+			{
+				forecastingData = "no";
+
+			}
+			else if (forecastingData.contains("Data shows an equal chance"))
+			{
+				forecastingData = "yes";
+			}
 			
-			
-			if (forecastingData.equals(endData))
+			if (forecastingData.trim().equals(endData.trim()))
 			{
 				score++;
 			}
 		}
 		
-		
-		
+	    
 		
 		return (double) score / testingData.size();
 	}
