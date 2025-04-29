@@ -28,7 +28,7 @@ public abstract class Gui extends JFrame {
 		
 		//top panel created for the user input
 		topPanel = new JPanel();
-		topPanel.setLayout(new GridLayout(4,2));
+		topPanel.setLayout(new GridLayout(4,2,10,10));
 		add(topPanel, BorderLayout.CENTER);
 		
 		//creating checkboxes, labels and buttons

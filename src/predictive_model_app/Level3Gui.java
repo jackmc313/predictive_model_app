@@ -10,29 +10,45 @@ public class Level3Gui extends Level2Gui{
 	private JComboBox<String> isVerified;
 	private JLabel isVerifiedLabel;
 	private String newAddedData;
+	private JPanel buttonsAndResults;
 	
 	public Level3Gui()
 	{
 		super();
 		setTitle("predictive model app level 3");
 		//bigger grid due to more labels and checkboxes
-		setLayout(new GridLayout(5,2));
-		setSize(800,500);
+		setSize(600,300);
+		setLayout(new BorderLayout(10,10));
+		
+		topPanel.setLayout(new GridLayout(5,2));
+		topPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		
 		//checkbox options
 		String[] options = {"yes","no"};
-		
-		//adding new add row button
-		addNewRow = new JButton("Add new Row and retrain");
-		bottomPanel.add(addNewRow);
 		
 		//adding new combobox and label
 		isVerified = new JComboBox<>(options);
 		isVerifiedLabel = new JLabel("Is Verified");
 		
-		//added to panel
+		//added to panel and editing panel
 		topPanel.add(isVerifiedLabel);
 		topPanel.add(isVerified);
+		
+		//adding new add row button and panel
+		addNewRow = new JButton("Add new Row and retrain");
+		buttonsAndResults = new JPanel(new FlowLayout(FlowLayout.CENTER, 20,10));
+		buttonsAndResults.add(predict);
+		buttonsAndResults.add(addNewRow);
+		buttonsAndResults.add(train);
+
+
+		//redoing bottom panel to hold all buttons and results
+		bottomPanel.removeAll();
+		add(bottomPanel, BorderLayout.SOUTH);
+		bottomPanel.setLayout(new BorderLayout());
+		bottomPanel.add(buttonsAndResults, BorderLayout.NORTH);
+		bottomPanel.add(results, BorderLayout.SOUTH);
+
 		
 		
 		//same as from level 2 gui except added label for isverifed 
