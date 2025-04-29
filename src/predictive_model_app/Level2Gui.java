@@ -6,12 +6,12 @@ import javax.swing.*;
 
 public class Level2Gui extends Gui {
 	
-	private JButton train;
-	private String filename;
-	private TrainCSV_data trainData;
-	private String enteredValues;
-	private String printedResults;
-	private List<String> trainedData;
+	protected JButton train;
+	protected String filename;
+	protected TrainCSV_data trainData; //due to being used in level3gui it is set to protected
+	protected String enteredValues;
+	protected String printedResults;
+	protected List<String> trainedData; //same as above
 	
 	public Level2Gui()
 	{

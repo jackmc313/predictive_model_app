@@ -23,7 +23,7 @@ public abstract class Gui extends JFrame {
 	{	
 		//setting up Gui
 		super(title);
-		setSize(600,300);
+		setSize(800,500);
 		setLayout(new FlowLayout());
 		
 		//top panel created for the user input
