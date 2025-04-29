@@ -20,6 +20,7 @@ public class Level3Gui extends Level2Gui{
 		setSize(600,300);
 		setLayout(new BorderLayout(10,10));
 		
+		//new layout for top panel along with creating a border
 		topPanel.setLayout(new GridLayout(5,2));
 		topPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		
